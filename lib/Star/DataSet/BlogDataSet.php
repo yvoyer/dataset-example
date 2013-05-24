@@ -1,7 +1,7 @@
 <?php
 /**
  * This file is part of the Dataset.
- * 
+ *
  * (c) Yannick Voyer (http://github.com/yvoyer)
  */
 
@@ -10,6 +10,7 @@ namespace Star\DataSet;
 use Star\Blog\Article;
 use Star\Blog\Comment;
 use Star\Blog\Tag;
+use Star\Mapping\TagMapping;
 
 /**
  * Class BlogDataSet
@@ -46,15 +47,9 @@ class BlogDataSet
         $this->rawTags     = $data["Tag"];
         $this->articles    = array();
         $this->comments    = array();
-        $this->tags        = array();
 
-        foreach ($this->rawTags as $aRow) {
-            $tag = new Tag();
-            $tag->setId($aRow["id"]);
-            $tag->setName($aRow["name"]);
-
-            $this->tags[$aRow["id"]] = $tag;
-        }
+        $tagDataSet = new TagDataSet($data, new TagMapping());
+        $this->tags = $tagDataSet->toArray();
 
         foreach ($this->rawArticles as $aRow) {
             $article = new Article();
