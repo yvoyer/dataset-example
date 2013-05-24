@@ -1,0 +1,16 @@
+{
+    "name": "star/dataset",
+    "description": "description_text",
+    "minimum-stability": "stable",
+    "authors": [
+        {
+            "name": "Yannick Voyer",
+            "email": "yan.voyer@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "Star": ["lib", "tests"]
+        }
+    }
+}
