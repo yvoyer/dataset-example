@@ -48,7 +48,7 @@ class DataSetTest extends \PHPUnit_Framework_TestCase
 
     public function testImportData()
     {
-        $dataSet = new BlogDataSet($this->getData(), new BlogMapping());
+        $dataSet = new BlogDataSet($this->getData());
 
         $this->assertCount(4, $dataSet->getArticles());
         $this->assertCount(5, $dataSet->getTags());

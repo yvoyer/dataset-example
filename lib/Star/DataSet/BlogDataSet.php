@@ -10,7 +10,6 @@ namespace Star\DataSet;
 use Star\Blog\Article;
 use Star\Blog\Comment;
 use Star\Blog\Tag;
-use Star\Mapping\BlogMapping;
 
 /**
  * Class BlogDataSet
@@ -40,7 +39,7 @@ class BlogDataSet
      */
     private $tags;
 
-    public function __construct(array $data = array(), BlogMapping $mapping)
+    public function __construct(array $data = array())
     {
         $this->rawArticles = $data["Article"];
         $this->rawComments = $data["Comment"];
@@ -116,6 +115,8 @@ class BlogDataSet
 
     /**
      * @param Tag
+     *
+     * @return Tag
      */
     public function getTag($id)
     {
@@ -124,6 +125,8 @@ class BlogDataSet
 
     /**
      * @param Comment
+     *
+     * @return Comment
      */
     public function getComment($id)
     {
