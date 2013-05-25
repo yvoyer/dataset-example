@@ -5,7 +5,7 @@
  * (c) Yannick Voyer (http://github.com/yvoyer)
  */
 
-namespace Star\DataSet;
+namespace Star\DataSet\Blog;
 
 use Star\Blog\Article;
 use Star\Blog\Comment;

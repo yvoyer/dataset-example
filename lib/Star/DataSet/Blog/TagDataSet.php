@@ -1,22 +1,22 @@
 <?php
 /**
  * This file is part of the Dataset.
- * 
+ *
  * (c) Yannick Voyer (http://github.com/yvoyer)
  */
 
-namespace Star\DataSet;
+namespace Star\DataSet\Blog;
 
-use Star\Mapping\DataSetMapping;
+use Star\DataSet\AbstractDataSet;
 
 /**
- * Class ArticleDataSet
+ * Class TagDataSet
  *
  * @author  Yannick Voyer (http://github.com/yvoyer)
  *
- * @package Star\DataSet
+ * @package Star
  */
-class ArticleDataSet extends AbstractDataSet
+class TagDataSet extends AbstractDataSet
 {
     /**
      * Returns the name of the data set.
@@ -25,6 +25,6 @@ class ArticleDataSet extends AbstractDataSet
      */
     public function getName()
     {
-        return "Articles";
+        return "Tag";
     }
 }
