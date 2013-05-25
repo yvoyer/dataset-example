@@ -1,18 +1,18 @@
 <?php
 /**
- * This file is property of crakmedia (http://crakmedia.com)
+ * This file is part of the Dataset.
  *
- * PHP Version 5.4
- *
- * @copyright 2013 Crakmedia
+ * (c) Yannick Voyer (http://github.com/yvoyer)
  */
 
 namespace Star\Mapping;
 
 /**
- * Interface DataSetMapping
+ * Class DataSetMapping
  *
- * @author   Yannick Voyer <yvoyer@crakmedia.com>
+ * @author  Yannick Voyer (http://github.com/yvoyer)
+ *
+ * @package Star
  */
 interface DataSetMapping
 {

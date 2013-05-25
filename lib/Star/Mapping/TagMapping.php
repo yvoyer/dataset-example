@@ -1,10 +1,8 @@
 <?php
 /**
- * This file is property of crakmedia (http://crakmedia.com)
+ * This file is part of the Dataset.
  *
- * PHP Version 5.4
- *
- * @copyright 2013 Crakmedia
+ * (c) Yannick Voyer (http://github.com/yvoyer)
  */
 
 namespace Star\Mapping;
@@ -12,39 +10,20 @@ namespace Star\Mapping;
 /**
  * Class TagMapping
  *
- * @package  Star\Mapping
- * @author   Yannick Voyer <yvoyer@crakmedia.com>
+ * @author  Yannick Voyer (http://github.com/yvoyer)
+ *
+ * @package Star
  */
-class TagMapping implements DataSetMapping
+class TagMapping extends AbstractMapper
 {
-    private $mapping = array(
-        "id" => "setId",
-        "name" => "setName",
-    );
-
     /**
      * Returns the class name of the object to map
+     *
      * @return mixed
      */
     public function getClass()
     {
         return "Star\Blog\Tag";
-    }
-
-    /**
-     * Populate the $object according to the mapping strategy.
-     *
-     * @param $object
-     * @param $column
-     * @param $value
-     *
-     * @return mixed
-     */
-    public function populate(&$object, $column, $value)
-    {
-        $method = $this->mapping[$column];
-
-        $object->{$method}($value);
     }
 
     /**
@@ -59,10 +38,24 @@ class TagMapping implements DataSetMapping
 
     /**
      * Returns the unique identifier.
+     *
      * @return integer|string
      */
     public function getIdentifier()
     {
         return "id";
+    }
+
+    /**
+     * Returns the mapping of the fields to a setter method.
+     *
+     * @return array
+     */
+    protected function getMapping()
+    {
+        return array(
+            "id"   => "setId",
+            "name" => "setName",
+        );
     }
 }

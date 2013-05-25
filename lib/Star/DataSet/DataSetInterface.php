@@ -1,28 +1,32 @@
 <?php
 /**
  * This file is part of the Dataset.
- *
+ * 
  * (c) Yannick Voyer (http://github.com/yvoyer)
  */
 
 namespace Star\DataSet;
 
 /**
- * Class TagDataSet
+ * Class DataSetInterface
  *
  * @author  Yannick Voyer (http://github.com/yvoyer)
  *
- * @package Star
+ * @package Star\DataSet
  */
-class TagDataSet extends AbstractDataSet
+interface DataSetInterface
 {
     /**
      * Returns the name of the data set.
      *
      * @return string
      */
-    public function getName()
-    {
-        return "Tag";
-    }
+    public function getName();
+
+    /**
+     * Returns the data set as a flat array.
+     *
+     * @return array
+     */
+    public function toArray();
 }
