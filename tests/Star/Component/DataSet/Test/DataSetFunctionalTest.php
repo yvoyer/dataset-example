@@ -45,7 +45,7 @@ class DataSetFunctionalTest extends \PHPUnit_Framework_TestCase
         );
     }
 
-    public function testImportData()
+    public function testShouldMapAllTheDataUsingAStub()
     {
         $dataSet = new BlogDataSet($this->getData());
 
@@ -67,6 +67,37 @@ class DataSetFunctionalTest extends \PHPUnit_Framework_TestCase
         $this->assertTagObject($dataSet->getTag(56), 56, "tag56");
         $this->assertTagObject($dataSet->getTag(78), 78, "tag78");
         $this->assertTagObject($dataSet->getTag(90), 90, "tag90");
+    }
+
+    public function testShouldBeConfigurableAsExample()
+    {
+        $data = $this->getData();
+
+        $tagMapper = new \Star\Component\DataSet\Mapping\Mapper('Tag', 'Star\Component\DataSet\Stub\Blog\Entity\Tag');
+        $tagMapper->addMap('id', 'setId');
+        $tagMapper->addMap('name', 'setName');
+
+        $tagDataSet = new \Star\Component\DataSet\DataSet($data, $tagMapper);
+        $result = '';
+        foreach ($tagDataSet->toArray() as $object) {
+            /**
+             * @var $object \Star\Component\DataSet\Stub\Blog\Entity\Tag
+             */
+            $result .= get_class($object) . ": {$object->getId()} => {$object->getName()}\n";
+        }
+
+        // $result contains
+        // Star\Component\DataSet\Stub\Blog\Entity\Tag: 12 => tag12
+        // Star\Component\DataSet\Stub\Blog\Entity\Tag: 34 => tag34
+        // Star\Component\DataSet\Stub\Blog\Entity\Tag: 56 => tag56
+        // Star\Component\DataSet\Stub\Blog\Entity\Tag: 78 => tag78
+        // Star\Component\DataSet\Stub\Blog\Entity\Tag: 90 => tag90
+
+        $this->assertContains('Star\Component\DataSet\Stub\Blog\Entity\Tag: 12 => tag12', $result);
+        $this->assertContains('Star\Component\DataSet\Stub\Blog\Entity\Tag: 34 => tag34', $result);
+        $this->assertContains('Star\Component\DataSet\Stub\Blog\Entity\Tag: 56 => tag56', $result);
+        $this->assertContains('Star\Component\DataSet\Stub\Blog\Entity\Tag: 78 => tag78', $result);
+        $this->assertContains('Star\Component\DataSet\Stub\Blog\Entity\Tag: 90 => tag90', $result);
     }
 
     private function assertCommentObject(Comment $comment, $id, $content, $articleId)
