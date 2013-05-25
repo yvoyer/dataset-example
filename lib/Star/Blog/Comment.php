@@ -32,6 +32,11 @@ class Comment
     private $article;
 
     /**
+     * @var integer
+     */
+    private $articleId;
+
+    /**
      * Set the article.
      *
      * @param \Star\Blog\Article $article
@@ -101,5 +106,29 @@ class Comment
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set the articleId.
+     *
+     * @param int $articleId
+     *
+     * @return self
+     */
+    public function setArticleId($articleId)
+    {
+        $this->articleId = $articleId;
+
+        return $this;
+    }
+
+    /**
+     * Returns the ArticleId.
+     *
+     * @return int
+     */
+    public function getArticleId()
+    {
+        return $this->articleId;
     }
 }

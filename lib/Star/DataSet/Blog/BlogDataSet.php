@@ -11,6 +11,7 @@ use Star\Blog\Article;
 use Star\Blog\Comment;
 use Star\Blog\Tag;
 use Star\Mapping\Mapper\ArticleMapper;
+use Star\Mapping\Mapper\CommentMapper;
 use Star\Mapping\Mapper\TagMapping;
 
 /**
@@ -63,13 +64,13 @@ class BlogDataSet
             }
         }
 
-        foreach ($this->rawComments as $aRow) {
-            $comment = new Comment();
-            $comment->setId($aRow["id"]);
-            $comment->setContent($aRow["content"]);
-            $comment->setArticle($this->getArticle($aRow["Article"]));
-
-            $this->comments[$aRow["id"]] = $comment;
+        $commentDataSet = new CommentDataSet($data, new CommentMapper());
+        $this->comments = $commentDataSet->toArray();
+        foreach ($this->comments as $comment) {
+            /**
+             * @var $comment Comment
+             */
+            $comment->setArticle($this->getArticle($comment->getArticleId()));
         }
     }
 
