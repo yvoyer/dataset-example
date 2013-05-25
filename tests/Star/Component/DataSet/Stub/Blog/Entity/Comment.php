@@ -5,14 +5,16 @@
  * (c) Yannick Voyer (http://github.com/yvoyer)
  */
 
-namespace Star\Blog;
+namespace Star\Component\DataSet\Stub\Blog\Entity;
+
+use Star\Component\DataSet\Stub\Blog\Entity\Article;
 
 /**
  * Class Comment
  *
  * @author  Yannick Voyer (http://github.com/yvoyer)
  *
- * @package Star\Blog
+ * @package Star\Component\DataSet\Stub\Blog\Entity
  */
 class Comment
 {
@@ -39,7 +41,7 @@ class Comment
     /**
      * Set the article.
      *
-     * @param \Star\Blog\Article $article
+     * @param Article $article
      *
      * @return self
      */
@@ -53,7 +55,7 @@ class Comment
     /**
      * Returns the Article.
      *
-     * @return \Star\Blog\Article
+     * @return Article
      */
     public function getArticle()
     {

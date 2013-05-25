@@ -5,19 +5,19 @@
  * (c) Yannick Voyer (http://github.com/yvoyer)
  */
 
-namespace Star;
+namespace Star\Component\DataSet\Test;
 
-use Star\Blog\Article;
-use Star\Blog\Comment;
-use Star\Blog\DataSet\BlogDataSet;
-use Star\Blog\Tag;
+use Star\Component\DataSet\Stub\Blog\DataSet\BlogDataSet;
+use Star\Component\DataSet\Stub\Blog\Entity\Article;
+use Star\Component\DataSet\Stub\Blog\Entity\Comment;
+use Star\Component\DataSet\Stub\Blog\Entity\Tag;
 
 /**
  * Class DataSetTest
  *
  * @author  Yannick Voyer (http://github.com/yvoyer)
  *
- * @package Star
+ * @package Star\Component\DataSet\Test
  */
 class DataSetTest extends \PHPUnit_Framework_TestCase
 {

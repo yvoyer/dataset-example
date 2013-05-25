@@ -5,14 +5,14 @@
  * (c) Yannick Voyer (http://github.com/yvoyer)
  */
 
-namespace Star\Blog\DataSet;
+namespace Star\Component\DataSet\Stub\Blog\DataSet;
 
-use Star\Blog\Article;
-use Star\Blog\Comment;
-use Star\Blog\Tag;
-use Star\Blog\Mapping\ArticleMapper;
-use Star\Blog\Mapping\CommentMapper;
-use Star\Blog\Mapping\TagMapper;
+use Star\Component\DataSet\Stub\Blog\Entity\Article;
+use Star\Component\DataSet\Stub\Blog\Entity\Comment;
+use Star\Component\DataSet\Stub\Blog\Entity\Tag;
+use Star\Component\DataSet\Stub\Blog\Mapping\ArticleMapper;
+use Star\Component\DataSet\Stub\Blog\Mapping\CommentMapper;
+use Star\Component\DataSet\Stub\Blog\Mapping\TagMapper;
 use Star\Component\DataSet\DataSet;
 
 /**
@@ -20,7 +20,7 @@ use Star\Component\DataSet\DataSet;
  *
  * @author  Yannick Voyer (http://github.com/yvoyer)
  *
- * @package Star
+ * @package Star\Component\DataSet\Stub\Blog\DataSet
  */
 class BlogDataSet
 {

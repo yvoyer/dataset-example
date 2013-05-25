@@ -1,37 +1,23 @@
 <?php
 /**
  * This file is part of the Dataset.
- * 
+ *
  * (c) Yannick Voyer (http://github.com/yvoyer)
  */
 
-namespace Star\Blog\Mapping;
+namespace Star\Component\DataSet\Stub\Blog\Mapping;
 
 use Star\Component\DataSet\Mapping\AbstractMapper;
 
 /**
- * Class CommentMapper
+ * Class TagMapper
  *
  * @author  Yannick Voyer (http://github.com/yvoyer)
  *
- * @package Star\Mapping\Mapper
+ * @package Star\Component\DataSet\Stub\Blog\Mapping
  */
-class CommentMapper extends AbstractMapper
+class TagMapper extends AbstractMapper
 {
-    /**
-     * Returns the mapping of the fields to a setter method.
-     *
-     * @return array
-     */
-    protected function getMapping()
-    {
-        return array(
-            'id'      => 'setId',
-            'content' => 'setContent',
-            'Article' => 'setArticleId',
-        );
-    }
-
     /**
      * Returns the class name of the object to map
      *
@@ -39,7 +25,7 @@ class CommentMapper extends AbstractMapper
      */
     public function getClass()
     {
-        return 'Star\Blog\Comment';
+        return 'Star\Component\DataSet\Stub\Blog\Entity\Tag';
     }
 
     /**
@@ -49,7 +35,7 @@ class CommentMapper extends AbstractMapper
      */
     public function getName()
     {
-        return 'Comment';
+        return 'Tag';
     }
 
     /**
@@ -60,5 +46,18 @@ class CommentMapper extends AbstractMapper
     public function getIdentifier()
     {
         return 'id';
+    }
+
+    /**
+     * Returns the mapping of the fields to a setter method.
+     *
+     * @return array
+     */
+    protected function getMapping()
+    {
+        return array(
+            'id'   => 'setId',
+            'name' => 'setName',
+        );
     }
 }

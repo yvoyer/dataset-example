@@ -5,14 +5,14 @@
  * (c) Yannick Voyer (http://github.com/yvoyer)
  */
 
-namespace Star\Blog;
+namespace Star\Component\DataSet\Stub\Blog\Entity;
 
 /**
  * Class Article
  *
  * @author  Yannick Voyer (http://github.com/yvoyer)
  *
- * @package Star\Blog
+ * @package Star\Component\DataSet\Stub\Blog\Entity
  */
 class Article
 {

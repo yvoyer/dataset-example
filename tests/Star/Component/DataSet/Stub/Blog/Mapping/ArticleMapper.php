@@ -5,7 +5,7 @@
  * (c) Yannick Voyer (http://github.com/yvoyer)
  */
 
-namespace Star\Blog\Mapping;
+namespace Star\Component\DataSet\Stub\Blog\Mapping;
 
 use Star\Component\DataSet\Mapping\AbstractMapper;
 
@@ -14,7 +14,7 @@ use Star\Component\DataSet\Mapping\AbstractMapper;
  *
  * @author  Yannick Voyer (http://github.com/yvoyer)
  *
- * @package Star\Mapping\Mapper
+ * @package Star\Component\DataSet\Stub\Blog\Mapping
  */
 class ArticleMapper extends AbstractMapper
 {
@@ -40,7 +40,7 @@ class ArticleMapper extends AbstractMapper
      */
     public function getClass()
     {
-        return 'Star\Blog\Article';
+        return 'Star\Component\DataSet\Stub\Blog\Entity\Article';
     }
 
     /**
