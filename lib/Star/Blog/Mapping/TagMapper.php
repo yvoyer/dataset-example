@@ -5,7 +5,7 @@
  * (c) Yannick Voyer (http://github.com/yvoyer)
  */
 
-namespace Star\Mapping\Blog;
+namespace Star\Blog\Mapping;
 
 use Star\Mapping\AbstractMapper;
 

@@ -5,18 +5,18 @@
  * (c) Yannick Voyer (http://github.com/yvoyer)
  */
 
-namespace Star\Mapping\Blog;
+namespace Star\Blog\Mapping;
 
 use Star\Mapping\AbstractMapper;
 
 /**
- * Class CommentMapper
+ * Class ArticleMapper
  *
  * @author  Yannick Voyer (http://github.com/yvoyer)
  *
  * @package Star\Mapping\Mapper
  */
-class CommentMapper extends AbstractMapper
+class ArticleMapper extends AbstractMapper
 {
     /**
      * Returns the mapping of the fields to a setter method.
@@ -26,9 +26,10 @@ class CommentMapper extends AbstractMapper
     protected function getMapping()
     {
         return array(
-            'id'      => 'setId',
-            'content' => 'setContent',
-            'Article' => 'setArticleId',
+            'id'          => 'setId',
+            'name'        => 'setName',
+            'description' => 'setDescription',
+            'Tags'        => 'setRawTags',
         );
     }
 
@@ -39,7 +40,7 @@ class CommentMapper extends AbstractMapper
      */
     public function getClass()
     {
-        return 'Star\Blog\Comment';
+        return 'Star\Blog\Article';
     }
 
     /**
@@ -49,7 +50,7 @@ class CommentMapper extends AbstractMapper
      */
     public function getName()
     {
-        return 'Comment';
+        return 'Article';
     }
 
     /**

@@ -5,14 +5,15 @@
  * (c) Yannick Voyer (http://github.com/yvoyer)
  */
 
-namespace Star\DataSet\Blog;
+namespace Star\Blog\DataSet;
 
 use Star\Blog\Article;
 use Star\Blog\Comment;
 use Star\Blog\Tag;
-use Star\Mapping\Blog\ArticleMapper;
-use Star\Mapping\Blog\CommentMapper;
-use Star\Mapping\Blog\TagMapper;
+use Star\DataSet;
+use Star\Blog\Mapping\ArticleMapper;
+use Star\Blog\Mapping\CommentMapper;
+use Star\Blog\Mapping\TagMapper;
 
 /**
  * Class BlogDataSet
@@ -23,10 +24,6 @@ use Star\Mapping\Blog\TagMapper;
  */
 class BlogDataSet
 {
-    private $rawArticles;
-    private $rawComments;
-    private $rawTags;
-
     /**
      * @var Article[]
      */
@@ -44,16 +41,10 @@ class BlogDataSet
 
     public function __construct(array $data = array())
     {
-        $this->rawArticles = $data["Article"];
-        $this->rawComments = $data["Comment"];
-        $this->rawTags     = $data["Tag"];
-        $this->articles    = array();
-        $this->comments    = array();
-
-        $tagDataSet = new TagDataSet($data, new TagMapper());
+        $tagDataSet = new DataSet($data, new TagMapper());
         $this->tags = $tagDataSet->toArray();
 
-        $articleDataSet = new ArticleDataSet($data, new ArticleMapper());
+        $articleDataSet = new DataSet($data, new ArticleMapper());
         $this->articles = $articleDataSet->toArray();
         foreach ($this->articles as $article) {
             /**
@@ -64,7 +55,7 @@ class BlogDataSet
             }
         }
 
-        $commentDataSet = new CommentDataSet($data, new CommentMapper());
+        $commentDataSet = new DataSet($data, new CommentMapper());
         $this->comments = $commentDataSet->toArray();
         foreach ($this->comments as $comment) {
             /**

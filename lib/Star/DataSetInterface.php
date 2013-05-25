@@ -5,7 +5,7 @@
  * (c) Yannick Voyer (http://github.com/yvoyer)
  */
 
-namespace Star\DataSet;
+namespace Star;
 
 /**
  * Class DataSetInterface
@@ -16,13 +16,6 @@ namespace Star\DataSet;
  */
 interface DataSetInterface
 {
-    /**
-     * Returns the name of the data set.
-     *
-     * @return string
-     */
-    public function getName();
-
     /**
      * Returns the data set as a flat array.
      *

@@ -9,8 +9,8 @@ namespace Star;
 
 use Star\Blog\Article;
 use Star\Blog\Comment;
+use Star\Blog\DataSet\BlogDataSet;
 use Star\Blog\Tag;
-use Star\DataSet\Blog\BlogDataSet;
 
 /**
  * Class DataSetTest

@@ -5,18 +5,18 @@
  * (c) Yannick Voyer (http://github.com/yvoyer)
  */
 
-namespace Star\DataSet;
+namespace Star;
 
 use Star\Mapping\DataSetMapping;
 
 /**
- * Class AbstractDataSet
+ * Class DataSet
  *
  * @author  Yannick Voyer (http://github.com/yvoyer)
  *
- * @package Star\DataSet
+ * @package Star
  */
-abstract class AbstractDataSet implements DataSetInterface
+class DataSet implements DataSetInterface
 {
     /**
      * The collection of elements.
