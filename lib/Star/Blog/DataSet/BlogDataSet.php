@@ -10,10 +10,10 @@ namespace Star\Blog\DataSet;
 use Star\Blog\Article;
 use Star\Blog\Comment;
 use Star\Blog\Tag;
-use Star\DataSet;
 use Star\Blog\Mapping\ArticleMapper;
 use Star\Blog\Mapping\CommentMapper;
 use Star\Blog\Mapping\TagMapper;
+use Star\Component\DataSet\DataSet;
 
 /**
  * Class BlogDataSet

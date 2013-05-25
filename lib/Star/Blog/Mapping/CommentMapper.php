@@ -7,7 +7,7 @@
 
 namespace Star\Blog\Mapping;
 
-use Star\Mapping\AbstractMapper;
+use Star\Component\DataSet\Mapping\AbstractMapper;
 
 /**
  * Class CommentMapper

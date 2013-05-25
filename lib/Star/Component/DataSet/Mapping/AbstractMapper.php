@@ -5,7 +5,7 @@
  * (c) Yannick Voyer (http://github.com/yvoyer)
  */
 
-namespace Star\Mapping;
+namespace Star\Component\DataSet\Mapping;
 
 /**
  * Class AbstractMapper

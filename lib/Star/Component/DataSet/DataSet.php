@@ -5,9 +5,9 @@
  * (c) Yannick Voyer (http://github.com/yvoyer)
  */
 
-namespace Star;
+namespace Star\Component\DataSet;
 
-use Star\Mapping\DataSetMapping;
+use Star\Component\DataSet\Mapping\DataSetMapping;
 
 /**
  * Class DataSet
