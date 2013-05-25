@@ -13,13 +13,13 @@ use Star\Component\DataSet\Stub\Blog\Entity\Comment;
 use Star\Component\DataSet\Stub\Blog\Entity\Tag;
 
 /**
- * Class DataSetTest
+ * Class DataSetFunctionalTest
  *
  * @author  Yannick Voyer (http://github.com/yvoyer)
  *
  * @package Star\Component\DataSet\Test
  */
-class DataSetTest extends \PHPUnit_Framework_TestCase
+class DataSetFunctionalTest extends \PHPUnit_Framework_TestCase
 {
     private function getData()
     {
