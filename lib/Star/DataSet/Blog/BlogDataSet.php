@@ -10,9 +10,9 @@ namespace Star\DataSet\Blog;
 use Star\Blog\Article;
 use Star\Blog\Comment;
 use Star\Blog\Tag;
-use Star\Mapping\Mapper\ArticleMapper;
-use Star\Mapping\Mapper\CommentMapper;
-use Star\Mapping\Mapper\TagMapping;
+use Star\Mapping\Blog\ArticleMapper;
+use Star\Mapping\Blog\CommentMapper;
+use Star\Mapping\Blog\TagMapper;
 
 /**
  * Class BlogDataSet
@@ -50,7 +50,7 @@ class BlogDataSet
         $this->articles    = array();
         $this->comments    = array();
 
-        $tagDataSet = new TagDataSet($data, new TagMapping());
+        $tagDataSet = new TagDataSet($data, new TagMapper());
         $this->tags = $tagDataSet->toArray();
 
         $articleDataSet = new ArticleDataSet($data, new ArticleMapper());

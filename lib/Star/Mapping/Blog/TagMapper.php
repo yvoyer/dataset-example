@@ -5,18 +5,18 @@
  * (c) Yannick Voyer (http://github.com/yvoyer)
  */
 
-namespace Star\Mapping\Mapper;
+namespace Star\Mapping\Blog;
 
 use Star\Mapping\AbstractMapper;
 
 /**
- * Class TagMapping
+ * Class TagMapper
  *
  * @author  Yannick Voyer (http://github.com/yvoyer)
  *
  * @package Star
  */
-class TagMapping extends AbstractMapper
+class TagMapper extends AbstractMapper
 {
     /**
      * Returns the class name of the object to map
