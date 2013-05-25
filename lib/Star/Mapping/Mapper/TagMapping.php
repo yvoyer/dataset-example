@@ -5,7 +5,9 @@
  * (c) Yannick Voyer (http://github.com/yvoyer)
  */
 
-namespace Star\Mapping;
+namespace Star\Mapping\Mapper;
+
+use Star\Mapping\AbstractMapper;
 
 /**
  * Class TagMapping

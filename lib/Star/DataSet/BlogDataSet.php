@@ -11,7 +11,7 @@ use Star\Blog\Article;
 use Star\Blog\Comment;
 use Star\Blog\Tag;
 use Star\Mapping\Mapper\ArticleMapper;
-use Star\Mapping\TagMapping;
+use Star\Mapping\Mapper\TagMapping;
 
 /**
  * Class BlogDataSet
