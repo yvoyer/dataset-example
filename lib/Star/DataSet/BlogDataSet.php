@@ -10,6 +10,7 @@ namespace Star\DataSet;
 use Star\Blog\Article;
 use Star\Blog\Comment;
 use Star\Blog\Tag;
+use Star\Mapping\Mapper\ArticleMapper;
 use Star\Mapping\TagMapping;
 
 /**
@@ -51,17 +52,15 @@ class BlogDataSet
         $tagDataSet = new TagDataSet($data, new TagMapping());
         $this->tags = $tagDataSet->toArray();
 
-        foreach ($this->rawArticles as $aRow) {
-            $article = new Article();
-            $article->setId($aRow["id"]);
-            $article->setName($aRow["name"]);
-            $article->setDescription($aRow["description"]);
-
-            foreach ($aRow["Tags"] as $tagId) {
+        $articleDataSet = new ArticleDataSet($data, new ArticleMapper());
+        $this->articles = $articleDataSet->toArray();
+        foreach ($this->articles as $article) {
+            /**
+             * @var $article Article
+             */
+            foreach ($article->getRawTags() as $tagId) {
                 $article->addTag($this->getTag($tagId));
             }
-
-            $this->articles[$aRow["id"]] = $article;
         }
 
         foreach ($this->rawComments as $aRow) {

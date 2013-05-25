@@ -36,9 +36,15 @@ class Article
      */
     private $tags;
 
+    /**
+     * @var array
+     */
+    private $rawTags;
+
     public function __construct()
     {
-        $this->tags = array();
+        $this->tags    = array();
+        $this->rawTags = array();
     }
 
     /**
@@ -131,5 +137,29 @@ class Article
     public function getTags()
     {
         return $this->tags;
+    }
+
+    /**
+     * Set the rawTags.
+     *
+     * @param array $rawTags
+     *
+     * @return self
+     */
+    public function setRawTags($rawTags)
+    {
+        $this->rawTags = $rawTags;
+
+        return $this;
+    }
+
+    /**
+     * Returns the RawTags.
+     *
+     * @return array
+     */
+    public function getRawTags()
+    {
+        return $this->rawTags;
     }
 }
