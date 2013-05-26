@@ -7,7 +7,7 @@
 
 namespace Star\Component\DataSet\Stub\Blog\Mapping;
 
-use Star\Component\DataSet\Mapping\AbstractMapper;
+use Star\Component\DataSet\Mapping\Mapper;
 
 /**
  * Class CommentMapper
@@ -16,49 +16,14 @@ use Star\Component\DataSet\Mapping\AbstractMapper;
  *
  * @package Star\Component\DataSet\Stub\Blog\Mapping
  */
-class CommentMapper extends AbstractMapper
+class CommentMapper extends Mapper
 {
-    /**
-     * Returns the mapping of the fields to a setter method.
-     *
-     * @return array
-     */
-    protected function getMapping()
+    public function __construct()
     {
-        return array(
-            'id'      => 'setId',
-            'content' => 'setContent',
-            'Article' => 'setArticleId',
-        );
-    }
+        parent::__construct('Comment', 'Star\Component\DataSet\Stub\Blog\Entity\Comment', 'id');
 
-    /**
-     * Returns the class name of the object to map
-     *
-     * @return mixed
-     */
-    public function getClass()
-    {
-        return 'Star\Component\DataSet\Stub\Blog\Entity\Comment';
-    }
-
-    /**
-     * Return the name of the mapping
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return 'Comment';
-    }
-
-    /**
-     * Returns the unique identifier.
-     *
-     * @return integer|string
-     */
-    public function getIdentifier()
-    {
-        return 'id';
+        $this->addMap('id', 'setId');
+        $this->addMap('content', 'setContent');
+        $this->addMap('Article', 'setArticleId');
     }
 }

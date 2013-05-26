@@ -10,6 +10,7 @@ namespace Star\Component\DataSet;
 use Star\Component\DataSet\Exception\Exception;
 use Star\Component\DataSet\Exception\MappingException;
 use Star\Component\DataSet\Mapping\DataSetMapping;
+use Star\Component\DataSet\Mapping\MapperInterface;
 
 /**
  * Class DataSet
@@ -46,13 +47,13 @@ class DataSet implements DataSetInterface
      */
     private $uidColumn;
 
-    public function __construct(array $data, DataSetMapping $mapping)
+    public function __construct(array $data, MapperInterface $mapper)
     {
         $this->elements = array();
-        $this->mapping  = $mapping;
+        $this->mapper   = $mapper;
 
-        $this->setUidColumn($this->mapping->getIdentifier());
-        $this->setClass($this->mapping->getClass());
+        $this->setUidColumn($this->mapper->getUniqueFieldName());
+        $this->setClass($this->mapper->getClass());
         $this->setRawData($data);
 
         $this->transform();
@@ -72,7 +73,7 @@ class DataSet implements DataSetInterface
                     $id = $value;
                 }
 
-                $this->mapping->populate($object, $column, $value);
+                $this->mapper->populate($object, $column, $value);
             }
 
             // No column could be found for the uid
@@ -103,7 +104,7 @@ class DataSet implements DataSetInterface
      */
     private function setRawData(array $data)
     {
-        $index = $this->mapping->getName();
+        $index = $this->mapper->getName();
         if (isset($data[$index])) {
             $data = $data[$index];
         } else if (false === empty($data)) {

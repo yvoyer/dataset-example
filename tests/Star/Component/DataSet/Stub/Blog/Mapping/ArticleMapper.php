@@ -7,7 +7,7 @@
 
 namespace Star\Component\DataSet\Stub\Blog\Mapping;
 
-use Star\Component\DataSet\Mapping\AbstractMapper;
+use Star\Component\DataSet\Mapping\Mapper;
 
 /**
  * Class ArticleMapper
@@ -16,50 +16,15 @@ use Star\Component\DataSet\Mapping\AbstractMapper;
  *
  * @package Star\Component\DataSet\Stub\Blog\Mapping
  */
-class ArticleMapper extends AbstractMapper
+class ArticleMapper extends Mapper
 {
-    /**
-     * Returns the mapping of the fields to a setter method.
-     *
-     * @return array
-     */
-    protected function getMapping()
+    public function __construct()
     {
-        return array(
-            'id'          => 'setId',
-            'name'        => 'setName',
-            'description' => 'setDescription',
-            'Tags'        => 'setRawTags',
-        );
-    }
+        parent::__construct('Article', 'Star\Component\DataSet\Stub\Blog\Entity\Article', 'id');
 
-    /**
-     * Returns the class name of the object to map
-     *
-     * @return mixed
-     */
-    public function getClass()
-    {
-        return 'Star\Component\DataSet\Stub\Blog\Entity\Article';
-    }
-
-    /**
-     * Return the name of the mapping
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return 'Article';
-    }
-
-    /**
-     * Returns the unique identifier.
-     *
-     * @return integer|string
-     */
-    public function getIdentifier()
-    {
-        return 'id';
+        $this->addMap('id', 'setId');
+        $this->addMap('name', 'setName');
+        $this->addMap('description', 'setDescription');
+        $this->addMap('Tags', 'setRawTags');
     }
 }

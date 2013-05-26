@@ -8,13 +8,13 @@
 namespace Star\Component\DataSet\Mapping;
 
 /**
- * Class DataSetMapping
+ * Class MapperInterface
  *
  * @author  Yannick Voyer (http://github.com/yvoyer)
  *
  * @package Star
  */
-interface DataSetMapping
+interface MapperInterface
 {
     /**
      * Returns the class name of the object to map
@@ -26,9 +26,9 @@ interface DataSetMapping
     /**
      * Populate the $object according to the mapping strategy.
      *
-     * @param $object
-     * @param $column
-     * @param $value
+     * @param object $object
+     * @param string $column
+     * @param mixed  $value
      *
      * @return mixed
      */
@@ -42,9 +42,9 @@ interface DataSetMapping
     public function getName();
 
     /**
-     * Returns the unique identifier.
+     * Returns the unique field name.
      *
      * @return integer|string
      */
-    public function getIdentifier();
+    public function getUniqueFieldName();
 }

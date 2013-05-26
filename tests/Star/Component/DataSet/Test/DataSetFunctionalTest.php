@@ -21,6 +21,27 @@ use Star\Component\DataSet\Stub\Blog\Entity\Tag;
  */
 class DataSetFunctionalTest extends \PHPUnit_Framework_TestCase
 {
+    private function assertCommentObject(Comment $comment, $id, $content, $articleId)
+    {
+        $this->assertSame($id, $comment->getId());
+        $this->assertSame($content, $comment->getContent());
+        $this->assertSame($articleId, $comment->getArticle()->getId());
+    }
+
+    private function assertArticleObject(Article $article, $id, $name, $description, $tagCount)
+    {
+        $this->assertSame($id, $article->getId());
+        $this->assertSame($name, $article->getName());
+        $this->assertSame($description, $article->getDescription());
+        $this->assertCount($tagCount, $article->getTags());
+    }
+
+    private function assertTagObject(Tag $tag, $id, $name)
+    {
+        $this->assertSame($id, $tag->getId());
+        $this->assertSame($name, $tag->getName());
+    }
+
     private function getData()
     {
         return array(
@@ -98,26 +119,5 @@ class DataSetFunctionalTest extends \PHPUnit_Framework_TestCase
         $this->assertContains('Star\Component\DataSet\Stub\Blog\Entity\Tag: 56 => tag56', $result);
         $this->assertContains('Star\Component\DataSet\Stub\Blog\Entity\Tag: 78 => tag78', $result);
         $this->assertContains('Star\Component\DataSet\Stub\Blog\Entity\Tag: 90 => tag90', $result);
-    }
-
-    private function assertCommentObject(Comment $comment, $id, $content, $articleId)
-    {
-        $this->assertSame($id, $comment->getId());
-        $this->assertSame($content, $comment->getContent());
-        $this->assertSame($articleId, $comment->getArticle()->getId());
-    }
-
-    private function assertArticleObject(Article $article, $id, $name, $description, $tagCount)
-    {
-        $this->assertSame($id, $article->getId());
-        $this->assertSame($name, $article->getName());
-        $this->assertSame($description, $article->getDescription());
-        $this->assertCount($tagCount, $article->getTags());
-    }
-
-    private function assertTagObject(Tag $tag, $id, $name)
-    {
-        $this->assertSame($id, $tag->getId());
-        $this->assertSame($name, $tag->getName());
     }
 }

@@ -14,7 +14,7 @@ namespace Star\Component\DataSet\Mapping;
  *
  * @package Star\Component\DataSet\Mapping
  */
-class Mapper extends AbstractMapper
+class Mapper implements MapperInterface
 {
     /**
      * @var string
@@ -29,19 +29,19 @@ class Mapper extends AbstractMapper
     /**
      * @var string
      */
-    private $identifier;
+    private $uniqueFieldName;
 
     /**
      * @var array
      */
     private $mappings;
 
-    public function __construct($name, $class, $identifier = 'id')
+    public function __construct($name, $class, $uniqueFieldName = 'id')
     {
-        $this->name       = $name;
-        $this->class      = $class;
-        $this->identifier = $identifier;
-        $this->mappings   = array();
+        $this->name            = $name;
+        $this->class           = $class;
+        $this->uniqueFieldName = $uniqueFieldName;
+        $this->mappings        = array();
     }
 
     /**
@@ -56,13 +56,19 @@ class Mapper extends AbstractMapper
     }
 
     /**
-     * Returns the mapping of the fields to a setter method.
+     * Populate the $object according to the mapping strategy.
      *
-     * @return array
+     * @param object $object
+     * @param string $column
+     * @param mixed  $value
+     *
+     * @return mixed
      */
-    protected function getMapping()
+    public function populate(&$object, $column, $value)
     {
-        return $this->mappings;
+        $method = $this->mappings[$column];
+
+        $object->{$method}($value);
     }
 
     /**
@@ -86,12 +92,12 @@ class Mapper extends AbstractMapper
     }
 
     /**
-     * Returns the unique identifier.
+     * Returns the unique field name.
      *
      * @return integer|string
      */
-    public function getIdentifier()
+    public function getUniqueFieldName()
     {
-        return $this->identifier;
+        return $this->uniqueFieldName;
     }
 }

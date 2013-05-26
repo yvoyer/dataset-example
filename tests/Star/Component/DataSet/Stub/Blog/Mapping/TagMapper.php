@@ -7,7 +7,7 @@
 
 namespace Star\Component\DataSet\Stub\Blog\Mapping;
 
-use Star\Component\DataSet\Mapping\AbstractMapper;
+use Star\Component\DataSet\Mapping\Mapper;
 
 /**
  * Class TagMapper
@@ -16,48 +16,13 @@ use Star\Component\DataSet\Mapping\AbstractMapper;
  *
  * @package Star\Component\DataSet\Stub\Blog\Mapping
  */
-class TagMapper extends AbstractMapper
+class TagMapper extends Mapper
 {
-    /**
-     * Returns the class name of the object to map
-     *
-     * @return mixed
-     */
-    public function getClass()
+    public function __construct()
     {
-        return 'Star\Component\DataSet\Stub\Blog\Entity\Tag';
-    }
+        parent::__construct('Tag', 'Star\Component\DataSet\Stub\Blog\Entity\Tag', 'id');
 
-    /**
-     * Return the name of the mapping
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return 'Tag';
-    }
-
-    /**
-     * Returns the unique identifier.
-     *
-     * @return integer|string
-     */
-    public function getIdentifier()
-    {
-        return 'id';
-    }
-
-    /**
-     * Returns the mapping of the fields to a setter method.
-     *
-     * @return array
-     */
-    protected function getMapping()
-    {
-        return array(
-            'id'   => 'setId',
-            'name' => 'setName',
-        );
+        $this->addMap('id', 'setId');
+        $this->addMap('name', 'setName');
     }
 }

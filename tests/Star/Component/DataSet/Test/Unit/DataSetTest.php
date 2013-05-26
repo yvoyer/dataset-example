@@ -8,7 +8,7 @@
 namespace Star\Component\DataSet\Test\Unit;
 
 use Star\Component\DataSet\DataSet;
-use Star\Component\DataSet\Mapping\DataSetMapping;
+use Star\Component\DataSet\Mapping\MapperInterface;
 
 /**
  * Class DataSetTest
@@ -20,12 +20,12 @@ use Star\Component\DataSet\Mapping\DataSetMapping;
 class DataSetTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @param array          $data
-     * @param DataSetMapping $mapping
+     * @param array           $data
+     * @param MapperInterface $mapping
      *
      * @return DataSet
      */
-    private function getDataSet(array $data = array(), DataSetMapping $mapping = null)
+    private function getDataSet(array $data = array(), MapperInterface $mapping = null)
     {
         $mapping = $this->getMockMapping($mapping);
 
@@ -33,47 +33,31 @@ class DataSetTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @param DataSetMapping $mapper
+     * @param MapperInterface $mapper
      *
-     * @return \PHPUnit_Framework_MockObject_MockObject|DataSetMapping
+     * @return \PHPUnit_Framework_MockObject_MockObject|MapperInterface
      */
-    private function getMockMapping(DataSetMapping $mapper = null)
+    private function getMockMapping(MapperInterface $mapper = null)
     {
         if (null === $mapper) {
-            $mapper = $this->getMock('Star\Component\DataSet\Mapping\DataSetMapping');
+            $mapper = $this->getMock('Star\Component\DataSet\Mapping\MapperInterface');
         }
 
         return $mapper;
     }
 
     /**
-     * @param DataSetMapping $mapper
+     * @param MapperInterface $mapper
      *
-     * @return \PHPUnit_Framework_MockObject_MockObject|DataSetMapping
+     * @return \PHPUnit_Framework_MockObject_MockObject|MapperInterface
      */
-    private function getMockMappingExpectsValidClass(DataSetMapping $mapper = null)
+    private function getMockMappingExpectsValidClass(MapperInterface $mapper = null)
     {
         $mapper = $this->getMockMapping($mapper);
         $mapper
             ->expects($this->once())
             ->method('getClass')
             ->will($this->returnValue('Star\Component\DataSet\Stub\Blog\Entity\Tag'));
-
-        return $mapper;
-    }
-
-    /**
-     * @param DataSetMapping $mapper
-     *
-     * @return \PHPUnit_Framework_MockObject_MockObject|DataSetMapping
-     */
-    private function getMockMappingExpectsValidIdentifier(DataSetMapping $mapper = null)
-    {
-        $mapper = $this->getMockMapping($mapper);
-        $mapper
-            ->expects($this->once())
-            ->method('getIdentifier')
-            ->will($this->returnValue(uniqid()));
 
         return $mapper;
     }
@@ -128,7 +112,7 @@ class DataSetTest extends \PHPUnit_Framework_TestCase
             ->will($this->returnValue('index'));
         $mapper
             ->expects($this->once())
-            ->method('getIdentifier')
+            ->method('getUniqueFieldName')
             ->will($this->returnValue($uid));
 
         $data = array(
@@ -183,7 +167,7 @@ class DataSetTest extends \PHPUnit_Framework_TestCase
             ->will($this->returnValue('index'));
         $mapper
             ->expects($this->once())
-            ->method('getIdentifier')
+            ->method('getUniqueFieldName')
             ->will($this->returnValue('id'));
 
         $data = array(
